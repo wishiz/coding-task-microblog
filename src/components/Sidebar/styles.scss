@@ -1,0 +1,41 @@
+@import '../../styles/colors.scss';
+
+.sidebar {
+  width: 300px;
+  margin-right: 48px;
+
+  &__bg {
+    background-image: url('../../assets/images/home_sidebar_bg.jpg');
+    background-size: cover;
+    height: 100%;
+  }
+
+  &__bg-text {
+    max-width: 280px;
+    margin: 0 auto;
+    padding-bottom: 48px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  &__title {
+    color: $white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  &__desc {
+    font-family: 'Raleway', sans-serif;
+    color: $white;
+    margin-bottom: 24px;
+  }
+
+  &__signin-btn {
+    font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+  }
+}

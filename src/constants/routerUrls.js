@@ -1,7 +1,8 @@
 const routerUrls = {
   default: '/',
-  userPage: '/user-page',
+  users: '/users',
   authorization: '/auth',
+  post: '/post',
 };
 
 export default routerUrls;
