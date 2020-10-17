@@ -8,7 +8,7 @@ import HomePosts from '../../components/HomePosts';
 
 import './styles.scss';
 
-function HomePage() {
+function HomePage({ isLoggedIn }) {
   const [, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);

@@ -42,7 +42,7 @@ function UserPage({ match, history }) {
   ) : (
     <div className="user-page">
       <div className="user-page__sidebar">
-        <Link to="/">
+        <Link to="/home">
           <ReactIcon size="xxxl" color="white" className="back-btn">
             <BiArrowBack />
           </ReactIcon>

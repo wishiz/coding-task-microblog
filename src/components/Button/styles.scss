@@ -12,22 +12,18 @@
 
   &--size-md {
     height: 46px;
-    padding: 0 24px;
+    width: 160px;
     font-size: 1rem;
   }
 
   &--size-lg {
-    height: 40px;
-    padding: 0 40px;
+    height: 48px;
+    width: 200px;
     font-size: 1rem;
   }
 
   &--borders-rounded {
     border-radius: 4px;
-  }
-
-  &--color-white {
-    background-color: $white;
   }
 
   &--color-blue {
@@ -41,10 +37,11 @@
 
   &--color-transparent {
     background-color: transparent;
-    border: 1px solid $black;
+    border: 1px solid $blue;
 
     &:hover {
-      background-color: $beige;
+      background-color: $blue;
+      color: $white;
     }
   }
 }

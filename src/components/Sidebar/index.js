@@ -23,7 +23,7 @@ function Sidebar() {
             borders="rounded"
             onClick={() => history.push('/auth')}
           >
-            Sign in
+            Sign out
           </Button>
         </div>
       </ContentWidthLimiter>

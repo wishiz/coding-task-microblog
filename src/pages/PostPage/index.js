@@ -35,7 +35,7 @@ function PostPage({ match, history }) {
   ) : (
     <div className="post-page">
       <div className="post-page__sidebar sidebar--left">
-        <Link to="/">
+        <Link to="/home">
           <ReactIcon className="back-btn" size="xxxl" color="white">
             <BiArrowBack />
           </ReactIcon>
