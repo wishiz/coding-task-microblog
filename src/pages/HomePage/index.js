@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Loader from '../../components/Loader';
 import Sidebar from '../../components/Sidebar';
-import Posts from '../../components/Posts';
+import HomePosts from '../../components/HomePosts';
 
 import './styles.scss';
 
@@ -41,7 +41,7 @@ function HomePage() {
   return posts.length > 0 ? (
     <div className="home">
       <Sidebar />
-      <Posts allPosts={posts} allUsers={users} allComments={comments} />
+      <HomePosts allPosts={posts} allUsers={users} allComments={comments} />
     </div>
   ) : (
     <Loader />

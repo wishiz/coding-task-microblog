@@ -1,0 +1,49 @@
+@import '../../styles/configs.scss';
+
+.user-info {
+  margin-right: 64px;
+  text-align: center;
+  margin-bottom: 24px;
+
+  @media screen and (max-width: $breakpoint-up-sm) {
+    text-align: left;
+  }
+
+  &__name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  &__pic {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      margin: 0 0 16px 0;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+    }
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__username {
+    font-size: 0.9rem;
+  }
+
+  &__email {
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+}

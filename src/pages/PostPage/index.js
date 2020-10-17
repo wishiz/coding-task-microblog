@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
-import axios from 'axios';
+import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+import ContentWidthLimiter from '../../components/ContentWidthLimiter';
+import ReactIcon from '../../components/ReactIcon';
+import Comments from '../../components/Comments';
+import Loader from '../../components/Loader';
+import Post from '../../components/Post';
 
 import './styles.scss';
 
-function PostPage({ match }) {
+function PostPage({ match, history }) {
   const {
     params: { postId },
   } = match;
@@ -17,25 +24,33 @@ function PostPage({ match }) {
     axios
       .get(`http://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((response) => {
-        console.log(response);
         setPost(response.data);
         setIsLoading(false);
-        console.log(`http://jsonplaceholder.typicode.com/posts/${postId}`);
       })
       .catch((error) => console.log(error));
   }, [postId]);
 
-  return (
-    <div>
-      {!isLoading && (
-        <>
-          <h1>Title: {post.title}</h1>
-          <h2>Body: {post.body}</h2>
-          <div className="postpage__divider"></div>
-          <div className="postpage__comments"></div>
-          <Link to="/">Back to homepage</Link>
-        </>
-      )}
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <div className="post-page">
+      <div className="post-page__sidebar sidebar--left">
+        <Link to="/">
+          <ReactIcon className="back-btn" size="xxxl" color="white">
+            <BiArrowBack />
+          </ReactIcon>
+        </Link>
+      </div>
+      <div>
+        <ContentWidthLimiter className="post-page__container">
+          <Post post={post} />
+          <h4 className="post-page__comments-title">
+            Comments ({history.location.state.comments.length})
+          </h4>
+          <Comments comments={history.location.state.comments} />
+        </ContentWidthLimiter>
+      </div>
+      <div className="post-page__sidebar sidebar--right"></div>
     </div>
   );
 }

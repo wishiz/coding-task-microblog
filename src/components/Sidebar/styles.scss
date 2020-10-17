@@ -1,23 +1,33 @@
 @import '../../styles/colors.scss';
+@import '../../styles/configs.scss';
 
 .sidebar {
-  width: 300px;
-  margin-right: 48px;
+  width: 400px;
+  background-image: url('../../assets/images/sidebar_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 16px;
 
-  &__bg {
-    background-image: url('../../assets/images/home_sidebar_bg.jpg');
+  @media screen and (max-width: $breakpoint-up-sm) {
+    width: 100%;
     background-size: cover;
+    background-position: right;
+  }
+
+  &__container {
     height: 100%;
   }
 
-  &__bg-text {
-    max-width: 280px;
-    margin: 0 auto;
-    padding-bottom: 48px;
+  &__text-block {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      max-width: 320px;
+      margin: 0 auto;
+    }
   }
 
   &__title {
@@ -29,13 +39,11 @@
   }
 
   &__desc {
-    font-family: 'Raleway', sans-serif;
     color: $white;
     margin-bottom: 24px;
   }
 
   &__signin-btn {
-    font-family: 'Raleway', sans-serif;
     cursor: pointer;
   }
 }

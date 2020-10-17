@@ -1,7 +1,39 @@
-.postpage {
-  &__divider {
-    height: 1px;
-    width: 100%;
-    background-color: black;
+@import '../../styles/configs.scss';
+
+.post-page {
+  display: flex;
+
+  &__container {
+    padding-top: 40px;
+  }
+
+  &__comments-title {
+    margin-bottom: 24px;
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      font-size: 0.9rem;
+    }
+  }
+
+  &__sidebar {
+    background-image: url('../../assets/images/sidebar_bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 560px;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    &--right {
+      @media screen and (max-width: $breakpoint-up-sm) {
+        display: none;
+      }
+    }
+
+    &--left {
+      @media screen and (max-width: $breakpoint-up-sm) {
+        width: 200px;
+      }
+    }
   }
 }

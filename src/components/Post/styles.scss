@@ -1,35 +1,31 @@
+@import '../../styles/mixins.scss';
 @import '../../styles/colors.scss';
+@import '../../styles/configs.scss';
 
 .post {
-  max-width: 800px;
-  font-family: 'Raleway', sans-serif;
-
   &__title {
     text-transform: uppercase;
-    font-weight: 600;
-    font-weight: 900;
-  }
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    margin-bottom: 24px;
 
-  &__user {
-    color: $grey-4;
-    font-size: 0.8rem;
-
-    span {
-      color: $blue;
-      cursor: pointer;
+    @media screen and (max-width: $breakpoint-up-sm) {
+      font-size: 1.6rem;
     }
   }
 
-  &__comments {
-    color: $grey-4;
-    font-size: 0.8rem;
-    cursor: pointer;
+  &__body {
+    margin-bottom: 48px;
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      font-size: 1.2rem;
+    }
   }
 
   &__divider {
     height: 1px;
     width: 100%;
-    background-color: $grey-4;
-    margin: 16px 0;
+    background-color: $grey-2;
+    margin-bottom: 24px;
   }
 }

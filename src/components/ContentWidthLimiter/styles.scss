@@ -1,0 +1,19 @@
+.content-limiter {
+  margin: 0 auto;
+
+  &--full-width {
+    max-width: 100%;
+    padding: initial;
+    margin: initial;
+  }
+
+  &--size-sm {
+    max-width: 960px;
+    padding: 0 64px;
+  }
+
+  &--size-lg {
+    max-width: 1170px;
+    padding: 0 16px;
+  }
+}

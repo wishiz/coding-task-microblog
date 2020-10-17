@@ -1,0 +1,34 @@
+@import '../../styles/colors.scss';
+@import '../../styles/configs.scss';
+
+.user-page {
+  display: flex;
+
+  &__main-block {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: $breakpoint-up-sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__block-title {
+    font-size: 1.3rem;
+    margin-bottom: 24px;
+  }
+
+  &__sidebar {
+    background-image: url('../../assets/images/sidebar_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+    width: 200px;
+    min-height: 100vh;
+  }
+
+  &__posts {
+    max-width: 800px;
+  }
+}

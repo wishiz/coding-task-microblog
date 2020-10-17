@@ -1,0 +1,22 @@
+@import '../../styles/colors.scss';
+
+.user-post {
+  margin-bottom: 32px;
+
+  &__title {
+    text-transform: uppercase;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__body {
+    font-size: 1rem;
+  }
+
+  &__comments {
+    cursor: pointer;
+    color: $blue;
+    font-size: 0.9rem;
+  }
+}

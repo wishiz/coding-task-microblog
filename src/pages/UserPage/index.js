@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
+import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-
+import { nanoid } from 'nanoid';
 import axios from 'axios';
 
-function UserPage({ match }) {
+import ContentWidthLimiter from '../../components/ContentWidthLimiter';
+import ReactIcon from '../../components/ReactIcon';
+import UserPost from '../../components/UserPost';
+import UserInfo from '../../components/UserInfo';
+import Loader from '../../components/Loader';
+
+import './styles.scss';
+
+function UserPage({ match, history }) {
   const {
     params: { userId },
   } = match;
@@ -16,26 +25,48 @@ function UserPage({ match }) {
     axios
       .get(`http://jsonplaceholder.typicode.com/users/${userId}`)
       .then((response) => {
-        console.log(response);
         setUser(response.data);
         setIsLoading(false);
-        console.log(`http://jsonplaceholder.typicode.com/users/${userId}`);
       })
       .catch((error) => console.log(error));
   }, [userId]);
 
-  return (
-    <div>
-      {!isLoading && (
-        <>
-          <h1>Name: {user.name}</h1>
-          <h2>Username: {user.username}</h2>
-          {}
-          <div className="user__posts">{}</div>
-          <div></div>
-          <Link to="/">Back to homepage</Link>
-        </>
-      )}
+  const allPosts = history.location.state.allPosts;
+
+  const userPosts = allPosts.filter((post) => post.userId === user.id);
+
+  const allComments = history.location.state.allComments;
+
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <div className="user-page">
+      <div className="user-page__sidebar">
+        <Link to="/">
+          <ReactIcon size="xxxl" color="white" className="back-btn">
+            <BiArrowBack />
+          </ReactIcon>
+        </Link>
+      </div>
+      <ContentWidthLimiter className="user-page__main-block">
+        <div>
+          <h2 className="user-page__block-title">Profile information</h2>
+          <UserInfo user={user} />
+        </div>
+        <div className="user-page__posts">
+          <h2 className="user-page__block-title">{`${user.name}'s posts`}</h2>
+          {userPosts.map((post) => (
+            <UserPost
+              key={nanoid()}
+              userId={history.location.state.user.id}
+              post={post}
+              comments={allComments.filter(
+                (comment) => comment.postId === post.id,
+              )}
+            />
+          ))}
+        </div>
+      </ContentWidthLimiter>
     </div>
   );
 }
