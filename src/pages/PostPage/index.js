@@ -23,7 +23,7 @@ function PostPage({ match }) {
 
   useEffect(() => {
     axios
-      .get(`http://jsonplaceholder.typicode.com/posts/${postId}`)
+      .get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((response) => {
         setPost(response.data);
         setIsLoading(false);

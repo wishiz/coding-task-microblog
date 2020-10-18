@@ -17,7 +17,7 @@ function HomePage() {
   useEffect(() => {
     setTimeout(() => {
       axios
-        .get('http://jsonplaceholder.typicode.com/posts')
+        .get('https://jsonplaceholder.typicode.com/posts')
         .then((response) => setPosts(response.data))
         .then(() => setIsLoading(false))
         .catch((error) => console.log(error));
@@ -26,14 +26,14 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get('http://jsonplaceholder.typicode.com/users/')
+      .get('https://jsonplaceholder.typicode.com/users/')
       .then((response) => setUsers(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     axios
-      .get('http://jsonplaceholder.typicode.com/comments')
+      .get('https://jsonplaceholder.typicode.com/comments')
       .then((response) => setComments(response.data))
       .catch((error) => console.log(error));
   }, []);

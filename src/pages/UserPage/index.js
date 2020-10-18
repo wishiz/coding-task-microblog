@@ -23,7 +23,7 @@ function UserPage({ match }) {
 
   useEffect(() => {
     axios
-      .get(`http://jsonplaceholder.typicode.com/users/${userId}`)
+      .get(`https://jsonplaceholder.typicode.com/users/${userId}`)
       .then((response) => {
         setUser(response.data);
         setIsLoading(false);

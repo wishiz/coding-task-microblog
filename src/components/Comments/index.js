@@ -13,7 +13,7 @@ function Comments({ post }) {
 
   useEffect(() => {
     axios
-      .get('http://jsonplaceholder.typicode.com/comments')
+      .get('https://jsonplaceholder.typicode.com/comments')
       .then((response) => setAllComments(response.data))
       .catch((error) => console.log(error));
   }, []);

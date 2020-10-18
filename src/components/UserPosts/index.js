@@ -12,14 +12,14 @@ function UserPosts({ user }) {
 
   useEffect(() => {
     axios
-      .get('http://jsonplaceholder.typicode.com/posts/')
+      .get('https://jsonplaceholder.typicode.com/posts/')
       .then((response) => setAllPosts(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     axios
-      .get('http://jsonplaceholder.typicode.com/comments')
+      .get('https://jsonplaceholder.typicode.com/comments')
       .then((response) => setAllComments(response.data))
       .catch((error) => console.log(error));
   }, []);
