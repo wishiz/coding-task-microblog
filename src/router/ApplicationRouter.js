@@ -2,8 +2,7 @@ import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import SignupPage from '../pages/SignupPage';
-import LoginPage from '../pages/LoginPage';
+import LoginPage from '../pages/SignInPage';
 import UserPage from '../pages/UserPage';
 import HomePage from '../pages/HomePage';
 import PostPage from '../pages/PostPage';
@@ -16,7 +15,6 @@ function ApplicationRouter() {
   return (
     <Switch>
       <Route component={LoginPage} path={routerUrls.signin} exact></Route>
-      <Route component={SignupPage} path={routerUrls.signup} exact />
       <ProtectedRoute
         component={HomePage}
         path={routerUrls.home}
@@ -30,7 +28,7 @@ function ApplicationRouter() {
         component={PostPage}
         path={`${routerUrls.post}/:postId`}
       />
-      {/* <Route render={() => <Redirect to={routerUrls.signin} />} /> */}
+      <Route render={() => <Redirect to={routerUrls.home} />} />
     </Switch>
   );
 }

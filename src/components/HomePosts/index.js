@@ -53,10 +53,9 @@ function HomePosts({ allPosts, allUsers, allComments }) {
       <section className="home-posts">
         <h2 className="home-posts__heading">Featured posts</h2>
         {randomPosts.map((post) => (
-          <>
+          <div key={nanoid()}>
             <HomePost
               user={getUser(post.userId)}
-              key={nanoid()}
               id={post.id}
               title={post.title}
               body={post.body}
@@ -68,7 +67,7 @@ function HomePosts({ allPosts, allUsers, allComments }) {
             {post === randomPosts[randomPosts.length - 1] ? null : (
               <div className="post-divider"></div>
             )}
-          </>
+          </div>
         ))}
       </section>
     </ContentWidthLimiter>

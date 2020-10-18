@@ -4,15 +4,15 @@ import { Route, Redirect } from 'react-router-dom';
 
 import fakeAuth from '../utils/fakeAuth';
 
-function ProtectedRoute({ children, ...rest }) {
+function ProtectedRoute({ component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        fakeAuth.isAuthorized === true ? (
-          children
+      render={(props) =>
+        fakeAuth.isAuthorized ? (
+          <Component {...props} />
         ) : (
-          <Redirect to={{ pathname: '/sign-in', state: { from: location } }} />
+          <Redirect to="/sign-in" />
         )
       }
     ></Route>

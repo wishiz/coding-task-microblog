@@ -8,6 +8,9 @@ const fakeAuth = {
     fakeAuth.isAuthorized = false;
     setTimeout(cb, 100);
   },
+  getAuthStatus() {
+    return this.isAuthenticated;
+  },
 };
 
 export default fakeAuth;

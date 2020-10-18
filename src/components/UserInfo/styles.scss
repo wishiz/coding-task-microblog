@@ -1,4 +1,5 @@
 @import '../../styles/configs.scss';
+@import '../../styles/colors.scss';
 
 .user-info {
   margin-right: 64px;
@@ -45,5 +46,11 @@
   &__email {
     font-size: 0.9rem;
     text-decoration: none;
+    transition: 0.2s ease color;
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
   }
 }

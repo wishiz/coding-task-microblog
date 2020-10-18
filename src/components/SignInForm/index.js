@@ -7,18 +7,17 @@ import history from '../../utils/history';
 
 import './styles.scss';
 
-function LoginForm({ className }) {
+function SignInForm({ className }) {
   const handleSubmit = (e) => {
     e.preventDefault();
-    fakeAuth.authorize(() => history.push('/home'));
-    console.log(e);
+    fakeAuth.authorize(() => history.push('/'));
   };
 
   return (
     <form className={`login-form ${className}`} onSubmit={handleSubmit}>
       <p className="login-form__title">Welcome, sign in here</p>
       <div className="login-form__input">
-        <input placeholder="Email" type="text" />
+        <input placeholder="Email" type="email" />
       </div>
       <div className="login-form__input">
         <input placeholder="Password" type="password" />
@@ -36,4 +35,4 @@ function LoginForm({ className }) {
   );
 }
 
-export default LoginForm;
+export default SignInForm;

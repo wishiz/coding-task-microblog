@@ -4,10 +4,15 @@ import Button from '../Button';
 import ContentWidthLimiter from '../ContentWidthLimiter';
 
 import history from '../../utils/history';
+import fakeAuth from '../../utils/fakeAuth';
 
 import './styles.scss';
 
 function Sidebar() {
+  const handleClick = () => {
+    fakeAuth.signout(() => history.push('/sign-in'));
+  };
+
   return (
     <aside className="sidebar">
       <ContentWidthLimiter className="sidebar__container">
@@ -21,7 +26,7 @@ function Sidebar() {
             color="blue"
             size="lg"
             borders="rounded"
-            onClick={() => history.push('/auth')}
+            onClick={handleClick}
           >
             Sign out
           </Button>

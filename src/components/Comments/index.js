@@ -21,17 +21,21 @@ function Comments({ post }) {
 
   const comments = allComments.filter((comment) => comment.postId === post.id);
 
-  return comments.map((comment) => (
+  return (
     <>
       <h4 className="post-page__comments-title">
         Comments ({comments.length})
       </h4>
-      <Comment comment={comment} key={nanoid()} />
-      {comment === comments[comments.length - 1] ? null : (
-        <div className="comment__divider"></div>
-      )}
+      {comments.map((comment) => (
+        <div>
+          <Comment comment={comment} key={nanoid()} />
+          {comment === comments[comments.length - 1] ? null : (
+            <div className="comment__divider"></div>
+          )}
+        </div>
+      ))}
     </>
-  ));
+  );
 }
 
 export default Comments;
