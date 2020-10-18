@@ -1,19 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { nanoid } from 'nanoid';
+import axios from 'axios';
+
+import Comment from '../Comment';
 
 import './styles.scss';
 
-function Comments({ comments }) {
+function Comments({ post }) {
+  const [allComments, setAllComments] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('http://jsonplaceholder.typicode.com/comments')
+      .then((result) => setAllComments(result.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  console.log('allComments :', allComments);
+
+  const comments = allComments.filter((comment) => comment.postId === post.id);
+
   return comments.map((comment) => (
-    <div className="comment" key={nanoid()}>
-      <h3 className="comment__email">From: {comment.email}</h3>
-      <h4 className="comment__name">{comment.name}</h4>
-      <h4 className="comment__body">{comment.body}</h4>
+    <>
+      <h4 className="post-page__comments-title">
+        Comments ({comments.length})
+      </h4>
+      <Comment comment={comment} key={nanoid()} />
       {comment === comments[comments.length - 1] ? null : (
         <div className="comment__divider"></div>
       )}
-    </div>
+    </>
   ));
 }
 

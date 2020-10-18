@@ -44,10 +44,7 @@ function PostPage({ match, history }) {
       <div>
         <ContentWidthLimiter className="post-page__container">
           <Post post={post} />
-          <h4 className="post-page__comments-title">
-            Comments ({history.location.state.comments.length})
-          </h4>
-          <Comments comments={history.location.state.comments} />
+          <Comments post={post} />
         </ContentWidthLimiter>
       </div>
       <div className="post-page__sidebar sidebar--right"></div>

@@ -33,7 +33,6 @@ function HomePost({ id, title, body, user, comments }) {
         onClick={() =>
           history.push({
             pathname: `/post/${id}`,
-            state: { comments },
           })
         }
       >
