@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import types from 'prop-types';
 import axios from 'axios';
 
 import ContentWidthLimiter from '../../components/ContentWidthLimiter';
@@ -36,7 +37,7 @@ function UserPage({ match }) {
     <div className="user-page">
       <div className="user-page__sidebar">
         <Link to="/">
-          <ReactIcon size="xxxl" color="white" className="back-btn">
+          <ReactIcon className="back-btn" size="xxxl">
             <BiArrowBack />
           </ReactIcon>
         </Link>
@@ -56,3 +57,7 @@ function UserPage({ match }) {
 }
 
 export default UserPage;
+
+UserPage.propTypes = {
+  match: types.objectOf(types.shape).isRequired,
+};

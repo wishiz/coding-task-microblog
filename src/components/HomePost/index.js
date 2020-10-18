@@ -1,5 +1,7 @@
 import React from 'react';
 
+import types from 'prop-types';
+
 import history from '../../utils/history';
 
 import './styles.scss';
@@ -27,7 +29,7 @@ function HomePost({ id, title, body, user, comments }) {
       >
         Posted by <span>{user.username}</span>
       </p>
-      <p className="home-post__body">{body}</p>
+      <p>{body}</p>
       <p
         className="home-post__comments"
         onClick={() =>
@@ -43,3 +45,16 @@ function HomePost({ id, title, body, user, comments }) {
 }
 
 export default HomePost;
+
+HomePost.propTypes = {
+  comments: types.arrayOf(types.object),
+  user: types.objectOf(types.shape),
+  body: types.string.isRequired,
+  id: types.number.isRequired,
+  title: types.string,
+};
+
+HomePost.defaultProps = {
+  title: 'Post title',
+  user: 'one of our users',
+};

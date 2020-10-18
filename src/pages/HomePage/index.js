@@ -8,17 +8,17 @@ import HomePosts from '../../components/HomePosts';
 
 import './styles.scss';
 
-function HomePage({ isLoggedIn }) {
-  const [, setIsLoading] = useState(true);
+function HomePage() {
+  const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
       axios
         .get('http://jsonplaceholder.typicode.com/posts')
-        .then((result) => setPosts(result.data))
+        .then((response) => setPosts(response.data))
         .then(() => setIsLoading(false))
         .catch((error) => console.log(error));
     }, 1000);
@@ -27,18 +27,18 @@ function HomePage({ isLoggedIn }) {
   useEffect(() => {
     axios
       .get('http://jsonplaceholder.typicode.com/users/')
-      .then((result) => setUsers(result.data))
+      .then((response) => setUsers(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     axios
       .get('http://jsonplaceholder.typicode.com/comments')
-      .then((result) => setComments(result.data))
+      .then((response) => setComments(response.data))
       .catch((error) => console.log(error));
   }, []);
 
-  return posts.length > 0 ? (
+  return !isLoading ? (
     <div className="home">
       <Sidebar />
       <HomePosts allPosts={posts} allUsers={users} allComments={comments} />

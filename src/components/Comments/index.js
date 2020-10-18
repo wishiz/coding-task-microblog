@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { nanoid } from 'nanoid';
 import axios from 'axios';
+import types from 'prop-types';
 
 import Comment from '../Comment';
 
@@ -13,24 +14,20 @@ function Comments({ post }) {
   useEffect(() => {
     axios
       .get('http://jsonplaceholder.typicode.com/comments')
-      .then((result) => setAllComments(result.data))
+      .then((response) => setAllComments(response.data))
       .catch((error) => console.log(error));
   }, []);
-
-  console.log('allComments :', allComments);
 
   const comments = allComments.filter((comment) => comment.postId === post.id);
 
   return (
     <>
-      <h4 className="post-page__comments-title">
-        Comments ({comments.length})
-      </h4>
+      <h4 className="comments__title">Comments ({comments.length})</h4>
       {comments.map((comment) => (
-        <div>
-          <Comment comment={comment} key={nanoid()} />
+        <div key={nanoid()}>
+          <Comment comment={comment} />
           {comment === comments[comments.length - 1] ? null : (
-            <div className="comment__divider"></div>
+            <div className="comments__divider"></div>
           )}
         </div>
       ))}
@@ -39,3 +36,7 @@ function Comments({ post }) {
 }
 
 export default Comments;
+
+Comments.propTypes = {
+  post: types.objectOf(types.shape).isRequired,
+};

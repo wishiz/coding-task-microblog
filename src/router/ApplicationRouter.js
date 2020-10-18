@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import LoginPage from '../pages/SignInPage';
+import SignInPage from '../pages/SignInPage';
 import UserPage from '../pages/UserPage';
 import HomePage from '../pages/HomePage';
 import PostPage from '../pages/PostPage';
@@ -14,7 +14,7 @@ import routerUrls from '../constants/routerUrls';
 function ApplicationRouter() {
   return (
     <Switch>
-      <Route component={LoginPage} path={routerUrls.signin} exact></Route>
+      <Route component={SignInPage} path={routerUrls.signin} exact></Route>
       <ProtectedRoute
         component={HomePage}
         path={routerUrls.home}

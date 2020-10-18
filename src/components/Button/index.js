@@ -6,13 +6,13 @@ import types from 'prop-types';
 import './styles.scss';
 
 export default function Button({
-  className,
   size,
-  color,
-  borders,
-  onClick,
-  children,
   type,
+  color,
+  onClick,
+  borders,
+  children,
+  className,
 }) {
   const buttonClass = classNames(
     {
@@ -33,10 +33,10 @@ export default function Button({
 
 Button.propTypes = {
   size: types.oneOf(['sm', 'md', 'lg']).isRequired,
-  color: types.oneOf(['blue', 'transparent']).isRequired,
-  appearance: types.string,
-  onClick: types.func,
+  color: types.oneOf(['blue']).isRequired,
   children: types.node.isRequired,
   className: types.string,
+  borders: types.string,
+  onClick: types.func,
   type: types.string,
 };

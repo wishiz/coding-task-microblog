@@ -23,10 +23,10 @@ function Sidebar() {
           </p>
           <Button
             className="sidebar__signin-btn"
+            onClick={handleClick}
+            borders="rounded"
             color="blue"
             size="lg"
-            borders="rounded"
-            onClick={handleClick}
           >
             Sign out
           </Button>

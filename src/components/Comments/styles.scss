@@ -1,28 +1,9 @@
 @import '../../styles/colors.scss';
 @import '../../styles/configs.scss';
 
-.comment {
-  &__email {
-    font-family: 'Raleway', sans-serif;
-    margin-bottom: 8px;
-
-    @media screen and (max-width: $breakpoint-up-sm) {
-      font-size: 0.9rem;
-    }
-  }
-
-  &__name {
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    font-weight: 600;
-
-    @media screen and (max-width: $breakpoint-up-sm) {
-      font-size: 0.95rem;
-    }
-  }
-
-  &__body {
-    margin-bottom: 16px;
+.comments {
+  &__title {
+    margin-bottom: 24px;
 
     @media screen and (max-width: $breakpoint-up-sm) {
       font-size: 0.9rem;

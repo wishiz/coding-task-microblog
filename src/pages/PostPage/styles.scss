@@ -7,16 +7,8 @@
     padding-top: 40px;
   }
 
-  &__comments-title {
-    margin-bottom: 24px;
-
-    @media screen and (max-width: $breakpoint-up-sm) {
-      font-size: 0.9rem;
-    }
-  }
-
   &__sidebar {
-    background-image: url('../../assets/images/sidebar_bg.jpg');
+    background-image: url('../../assets/images/background_img.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 560px;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import types from 'prop-types';
+
 import userProfilePics from '../../mocks/userProfilePics';
 
 import './styles.scss';
@@ -24,3 +26,7 @@ function UserInfo({ user }) {
 }
 
 export default UserInfo;
+
+UserInfo.propTypes = {
+  user: types.objectOf(types.shape).isRequired,
+};

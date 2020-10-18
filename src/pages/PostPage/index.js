@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { BiArrowBack } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import types from 'prop-types';
 import axios from 'axios';
 
 import ContentWidthLimiter from '../../components/ContentWidthLimiter';
@@ -12,7 +13,7 @@ import Post from '../../components/Post';
 
 import './styles.scss';
 
-function PostPage({ match, history }) {
+function PostPage({ match }) {
   const {
     params: { postId },
   } = match;
@@ -36,7 +37,7 @@ function PostPage({ match, history }) {
     <div className="post-page">
       <div className="post-page__sidebar sidebar--left">
         <Link to="/">
-          <ReactIcon className="back-btn" size="xxxl" color="white">
+          <ReactIcon className="back-btn" size="xxxl">
             <BiArrowBack />
           </ReactIcon>
         </Link>
@@ -53,3 +54,7 @@ function PostPage({ match, history }) {
 }
 
 export default PostPage;
+
+PostPage.propTypes = {
+  match: types.objectOf(types.shape).isRequired,
+};

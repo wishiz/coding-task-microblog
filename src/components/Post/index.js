@@ -1,5 +1,7 @@
 import React from 'react';
 
+import types from 'prop-types';
+
 import './styles.scss';
 
 function Post({ post }) {
@@ -13,3 +15,7 @@ function Post({ post }) {
 }
 
 export default Post;
+
+Post.propTypes = {
+  post: types.objectOf(types.shape).isRequired,
+};

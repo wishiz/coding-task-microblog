@@ -1,12 +1,14 @@
 import React from 'react';
 
 import { nanoid } from 'nanoid';
+import types from 'prop-types';
 
 import HomePost from '../HomePost';
 import ContentWidthLimiter from '../../components/ContentWidthLimiter';
 
 import './styles.scss';
 
+// Fisher–Yates shuffle. Will be used later to get random posts.
 const shuffleArr = (arr) => {
   var currentIndex = arr.length,
     temporaryValue,
@@ -55,14 +57,11 @@ function HomePosts({ allPosts, allUsers, allComments }) {
         {randomPosts.map((post) => (
           <div key={nanoid()}>
             <HomePost
+              comments={getComments(post.id)}
               user={getUser(post.userId)}
-              id={post.id}
               title={post.title}
               body={post.body}
-              comments={getComments(post.id)}
-              allPosts={allPosts}
-              allUsers={allUsers}
-              allComments={allComments}
+              id={post.id}
             />
             {post === randomPosts[randomPosts.length - 1] ? null : (
               <div className="post-divider"></div>
@@ -75,3 +74,9 @@ function HomePosts({ allPosts, allUsers, allComments }) {
 }
 
 export default HomePosts;
+
+HomePosts.propTypes = {
+  allComments: types.arrayOf(types.object).isRequired,
+  allPosts: types.arrayOf(types.object).isRequired,
+  allUsers: types.arrayOf(types.object).isRequired,
+};

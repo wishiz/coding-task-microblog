@@ -25,9 +25,13 @@ function ReactIcon({ className, color, size, onClick, id, children }) {
 export default ReactIcon;
 
 ReactIcon.propTypes = {
+  color: types.oneOf(['white', 'black']),
   className: types.string,
   onClick: types.func,
-  color: types.oneOf(['white', 'black']),
   size: types.string,
   id: types.string,
+};
+
+ReactIcon.defaultProps = {
+  color: 'white',
 };

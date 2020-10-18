@@ -1,5 +1,7 @@
 import React from 'react';
 
+import types from 'prop-types';
+
 import history from '../../utils/history';
 
 import './styles.scss';
@@ -35,3 +37,8 @@ function UserPost({ post, comments }) {
 }
 
 export default UserPost;
+
+UserPost.propTypes = {
+  post: types.objectOf(types.shape).isRequired,
+  comments: types.arrayOf(types.object).isRequired,
+};

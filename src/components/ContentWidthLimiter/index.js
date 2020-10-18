@@ -21,10 +21,10 @@ function ContentWidthLimiter({ fullWidth, children, className, size }) {
 export default ContentWidthLimiter;
 
 ContentWidthLimiter.propTypes = {
-  className: types.string,
-  fullWidth: types.bool,
   children: types.node.isRequired,
   size: types.oneOf(['sm', 'lg']),
+  className: types.string,
+  fullWidth: types.bool,
 };
 
 ContentWidthLimiter.defaultProps = {

@@ -6,7 +6,7 @@
 
   &--size-sm {
     height: 32px;
-    padding: 0 30px;
+    padding: 120px;
     font-size: 0.75rem;
   }
 
@@ -32,16 +32,6 @@
 
     &:hover {
       background-color: $blue-dark;
-    }
-  }
-
-  &--color-transparent {
-    background-color: transparent;
-    border: 1px solid $blue;
-
-    &:hover {
-      background-color: $blue;
-      color: $white;
     }
   }
 }

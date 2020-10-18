@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import UserPost from '../UserPost';
 
-import axios from 'axios';
 import { nanoid } from 'nanoid';
-
-import './styles.scss';
+import types from 'prop-types';
+import axios from 'axios';
 
 function UserPosts({ user }) {
   const [allPosts, setAllPosts] = useState([]);
@@ -14,14 +13,14 @@ function UserPosts({ user }) {
   useEffect(() => {
     axios
       .get('http://jsonplaceholder.typicode.com/posts/')
-      .then((result) => setAllPosts(result.data))
+      .then((response) => setAllPosts(response.data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     axios
       .get('http://jsonplaceholder.typicode.com/comments')
-      .then((result) => setAllComments(result.data))
+      .then((response) => setAllComments(response.data))
       .catch((error) => console.log(error));
   }, []);
 
@@ -29,11 +28,15 @@ function UserPosts({ user }) {
 
   return userPosts.map((post) => (
     <UserPost
+      comments={allComments.filter((comment) => comment.postId === post.id)}
       key={nanoid()}
       post={post}
-      comments={allComments.filter((comment) => comment.postId === post.id)}
     />
   ));
 }
 
 export default UserPosts;
+
+UserPosts.propTypes = {
+  user: types.objectOf(types.shape).isRequired,
+};

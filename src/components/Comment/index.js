@@ -1,5 +1,9 @@
 import React from 'react';
 
+import types from 'prop-types';
+
+import './styles.scss';
+
 function Comment({ comment }) {
   return (
     <div className="comment">
@@ -11,3 +15,7 @@ function Comment({ comment }) {
 }
 
 export default Comment;
+
+Comment.propTypes = {
+  comment: types.objectOf(types.shape).isRequired,
+};
