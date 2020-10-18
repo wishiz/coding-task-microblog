@@ -36,7 +36,7 @@ function UserPage({ match }) {
   ) : (
     <div className="user-page">
       <div className="user-page__sidebar">
-        <Link to="/">
+        <Link to="/coding-task">
           <ReactIcon className="back-btn" size="xxxl">
             <BiArrowBack />
           </ReactIcon>

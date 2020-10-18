@@ -36,7 +36,7 @@ function PostPage({ match }) {
   ) : (
     <div className="post-page">
       <div className="post-page__sidebar sidebar--left">
-        <Link to="/">
+        <Link to="/coding-task">
           <ReactIcon className="back-btn" size="xxxl">
             <BiArrowBack />
           </ReactIcon>

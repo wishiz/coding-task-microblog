@@ -13,7 +13,7 @@ function HomePost({ id, title, body, user, comments }) {
         className="home-post__title"
         onClick={() =>
           history.push({
-            pathname: `/post/${id}`,
+            pathname: `/coding-task/post/${id}`,
           })
         }
       >
@@ -23,7 +23,7 @@ function HomePost({ id, title, body, user, comments }) {
         className="home-post__user"
         onClick={() =>
           history.push({
-            pathname: `/user/${user.id}`,
+            pathname: `/coding-task/user/${user.id}`,
           })
         }
       >
@@ -34,7 +34,7 @@ function HomePost({ id, title, body, user, comments }) {
         className="home-post__comments"
         onClick={() =>
           history.push({
-            pathname: `/post/${id}`,
+            pathname: `/coding-task/post/${id}`,
           })
         }
       >

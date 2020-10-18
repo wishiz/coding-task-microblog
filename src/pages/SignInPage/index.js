@@ -1,5 +1,6 @@
 import React from 'react';
 
+import ContentWidthLimiter from '../../components/ContentWidthLimiter';
 import SignInForm from '../../components/SignInForm';
 
 import './styles.scss';
@@ -7,9 +8,9 @@ import './styles.scss';
 function SignInPage() {
   return (
     <div className="signin-page">
-      <div className="signin-page__main-block">
+      <ContentWidthLimiter className="signin-page__container">
         <SignInForm className="signin-page__form" />
-      </div>
+      </ContentWidthLimiter>
     </div>
   );
 }

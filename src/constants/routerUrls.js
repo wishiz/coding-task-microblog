@@ -1,9 +1,9 @@
 const routerUrls = {
-  home: '/',
-  signin: '/sign-in',
-  signup: '/sign-up',
-  user: '/user',
-  post: '/post',
+  home: '/coding-task',
+  signin: '/coding-task/sign-in',
+  signup: '/coding-task/sign-up',
+  user: '/coding-task/user',
+  post: '/coding-task/post',
 };
 
 export default routerUrls;

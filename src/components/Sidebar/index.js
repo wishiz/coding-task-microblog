@@ -10,7 +10,7 @@ import './styles.scss';
 
 function Sidebar() {
   const handleClick = () => {
-    fakeAuth.signout(() => history.push('/sign-in'));
+    fakeAuth.signout(() => history.push('/coding-task/sign-in'));
   };
 
   return (

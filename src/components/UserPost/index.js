@@ -13,7 +13,7 @@ function UserPost({ post, comments }) {
         className="user-post__title"
         onClick={() =>
           history.push({
-            pathname: `/post/${post.id}`,
+            pathname: `/coding-task/post/${post.id}`,
             state: { comments },
           })
         }
@@ -25,7 +25,7 @@ function UserPost({ post, comments }) {
         className="user-post__comments"
         onClick={() =>
           history.push({
-            pathname: `/post/${post.id}`,
+            pathname: `/coding-task/post/${post.id}`,
             state: { comments },
           })
         }

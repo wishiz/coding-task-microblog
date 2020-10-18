@@ -12,7 +12,7 @@ function ProtectedRoute({ component: Component, ...rest }) {
         fakeAuth.isAuthorized ? (
           <Component {...props} />
         ) : (
-          <Redirect to="/sign-in" />
+          <Redirect to="/coding-task/sign-in" />
         )
       }
     ></Route>
