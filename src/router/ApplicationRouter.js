@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -8,32 +8,29 @@ import UserPage from '../pages/UserPage';
 import HomePage from '../pages/HomePage';
 import PostPage from '../pages/PostPage';
 
+import ProtectedRoute from './ProtectedRoute';
+
 import routerUrls from '../constants/routerUrls';
 
 function ApplicationRouter() {
-  const [isLoggedIn, setLoggedIn] = useState('false');
-  const [user, setUser] = useState({});
-
   return (
     <Switch>
-      <Route
-        render={(props) => <LoginPage {...props} isLoggedIn={isLoggedIn} />}
-        path={routerUrls.login}
-        exact
-      />
-      <Route
-        render={(props) => <SignupPage {...props} isLoggedIn={isLoggedIn} />}
-        path={routerUrls.signup}
-        exact
-      />
-      <Route
-        render={(props) => <HomePage {...props} isLoggedIn={isLoggedIn} />}
+      <Route component={LoginPage} path={routerUrls.signin} exact></Route>
+      <Route component={SignupPage} path={routerUrls.signup} exact />
+      <ProtectedRoute
+        component={HomePage}
         path={routerUrls.home}
         exact
+      ></ProtectedRoute>
+      <ProtectedRoute
+        component={UserPage}
+        path={`${routerUrls.user}/:userId`}
       />
-      <Route component={UserPage} path={`${routerUrls.users}/:userId`} />
-      <Route component={PostPage} path={`${routerUrls.post}/:postId`} />
-      <Route render={() => <Redirect to="/" />} />
+      <ProtectedRoute
+        component={PostPage}
+        path={`${routerUrls.post}/:postId`}
+      />
+      {/* <Route render={() => <Redirect to={routerUrls.signin} />} /> */}
     </Switch>
   );
 }

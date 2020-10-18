@@ -1,9 +1,8 @@
 const routerUrls = {
-  login: '/',
+  home: '/',
+  signin: '/sign-in',
   signup: '/sign-up',
-  home: '/home',
-  users: '/users',
-  authorization: '/auth',
+  user: '/user',
   post: '/post',
 };
 

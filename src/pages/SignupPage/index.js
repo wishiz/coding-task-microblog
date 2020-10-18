@@ -8,7 +8,7 @@ function SignupPage({ isLoggedIn }) {
   return (
     <div className="signup-page">
       <div className="signup-page__info-block">
-        <SignupForm className="signup-page__form" />
+        <SignupForm className="signup-page__form" isLoggedIn={isLoggedIn} />
       </div>
     </div>
   );

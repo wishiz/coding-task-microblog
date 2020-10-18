@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '../Button';
 
@@ -10,9 +10,6 @@ function SignupForm({ className }) {
       <p className="signup-form__title">Welcome, sign up here</p>
       <div className="signup-form__input">
         <input placeholder="Name" type="text" />
-      </div>
-      <div className="signup-form__input">
-        <input placeholder="Username" type="text" />
       </div>
       <div className="signup-form__input">
         <input placeholder="Email" type="text" />

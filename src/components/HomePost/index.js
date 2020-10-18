@@ -4,16 +4,7 @@ import history from '../../utils/history';
 
 import './styles.scss';
 
-function HomePost({
-  id,
-  title,
-  body,
-  user,
-  comments,
-  allPosts,
-  allComments,
-  allUsers,
-}) {
+function HomePost({ id, title, body, user, comments }) {
   return (
     <div className="home-post">
       <h3
@@ -21,7 +12,6 @@ function HomePost({
         onClick={() =>
           history.push({
             pathname: `/post/${id}`,
-            state: { comments },
           })
         }
       >
@@ -31,8 +21,7 @@ function HomePost({
         className="home-post__user"
         onClick={() =>
           history.push({
-            pathname: `/users/${user.id}`,
-            state: { user, allPosts, allComments, allUsers },
+            pathname: `/user/${user.id}`,
           })
         }
       >
